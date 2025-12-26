@@ -1,0 +1,692 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Madrose Productions — Films by Jeremy Bailer</title>
+  <meta name="description" content="Madrose Productions showcases films and documentaries produced by Jeremy Bailer — trailers, awards, press, and where to watch." />
+  <style>
+    :root{
+      --bg:#0b0c10;
+      --panel:#11131a;
+      --panel2:#0f1117;
+      --text:#e9edf5;
+      --muted:#b7c0d6;
+      --accent:#ff3b7a;
+      --accent2:#7c5cff;
+      --line:rgba(255,255,255,.10);
+      --shadow: 0 16px 60px rgba(0,0,0,.45);
+      --radius: 18px;
+      --max: 1120px;
+      --font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:var(--font);
+      background:
+        radial-gradient(1000px 700px at 20% -10%, rgba(124,92,255,.30), transparent 55%),
+        radial-gradient(900px 650px at 85% 0%, rgba(255,59,122,.25), transparent 60%),
+        var(--bg);
+      color:var(--text);
+      line-height:1.55;
+    }
+    a{color:inherit}
+    .wrap{max-width:var(--max); margin:0 auto; padding:0 18px}
+    header{
+      position:sticky; top:0; z-index:10;
+      backdrop-filter: blur(10px);
+      background: rgba(11,12,16,.70);
+      border-bottom:1px solid var(--line);
+    }
+    .nav{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px 0;
+      gap:14px;
+    }
+    .brand{display:flex; align-items:center; gap:12px; text-decoration:none}
+    .logo{
+      width:38px; height:38px; border-radius:12px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      box-shadow: 0 10px 26px rgba(255,59,122,.18);
+    }
+    .brand b{letter-spacing:.2px}
+    .brand small{display:block; color:var(--muted); font-weight:500; margin-top:1px}
+    .links{display:flex; gap:12px; flex-wrap:wrap; justify-content:flex-end}
+    .links a{
+      text-decoration:none; color:var(--muted);
+      padding:8px 10px; border-radius:12px;
+      border:1px solid transparent;
+    }
+    .links a:hover{color:var(--text); border-color:var(--line); background:rgba(255,255,255,.04)}
+    .hero{padding:56px 0 24px;}
+    .heroGrid{
+      display:grid; gap:18px;
+      grid-template-columns: 1.2fr .8fr;
+      align-items:stretch;
+    }
+    @media (max-width: 900px){ .heroGrid{grid-template-columns:1fr} }
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+    }
+    .heroCard{padding:22px}
+    h1{margin:0 0 10px; font-size: clamp(30px, 4.2vw, 48px); line-height:1.1}
+    .kicker{color:var(--muted); font-size: 15px; margin:0 0 16px}
+    .pillRow{display:flex; gap:10px; flex-wrap:wrap; margin-top:14px}
+    .pill{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:8px 10px; border-radius:999px;
+      border:1px solid var(--line); color:var(--muted);
+      background: rgba(255,255,255,.03);
+      font-size: 13px;
+    }
+    .ctaRow{display:flex; gap:10px; flex-wrap:wrap; margin-top:16px}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:10px 14px; border-radius:14px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.04);
+      color:var(--text); text-decoration:none; font-weight:650;
+      transition: transform .12s ease, background .12s ease, border-color .12s ease;
+    }
+    .btn.primary{
+      border-color: transparent;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+    }
+    .btn:hover{transform: translateY(-1px)}
+    .sideCard{padding:18px}
+    .sideCard h3{margin:0 0 8px}
+    .sideCard p{margin:0; color:var(--muted)}
+    .hr{height:1px; background:var(--line); margin:14px 0}
+    .section{padding:26px 0}
+    .section h2{margin:0 0 10px; font-size: 22px}
+    .sub{color:var(--muted); margin:0 0 16px}
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:14px;
+    }
+    @media (max-width: 980px){ .grid{grid-template-columns: repeat(2, 1fr)} }
+    @media (max-width: 640px){ .grid{grid-template-columns: 1fr} }
+    .film{padding:14px}
+    .filmTop{display:flex; align-items:flex-start; justify-content:space-between; gap:10px}
+    .film h3{margin:0; font-size:18px}
+    .meta{color:var(--muted); font-size:13px; margin-top:2px}
+    .tagRow{display:flex; flex-wrap:wrap; gap:8px; margin:10px 0 8px}
+    .tag{
+      font-size:12px; color:var(--muted);
+      border:1px solid var(--line); background:rgba(255,255,255,.03);
+      padding:6px 8px; border-radius:999px;
+    }
+    .desc{color:var(--muted); margin:10px 0 12px}
+    .embed{
+      border-radius: 14px;
+      overflow:hidden;
+      border:1px solid var(--line);
+      background:#000;
+      aspect-ratio: 16/9;
+    }
+    iframe{width:100%; height:100%; border:0}
+    .actions{display:flex; flex-wrap:wrap; gap:10px; margin-top:12px}
+    .mutedBox{
+      padding:14px;
+      border:1px dashed rgba(255,255,255,.18);
+      border-radius: var(--radius);
+      background: rgba(255,255,255,.03);
+      color: var(--muted);
+    }
+    .cols{display:grid; grid-template-columns:1fr 1fr; gap:14px}
+    @media (max-width: 900px){ .cols{grid-template-columns:1fr} }
+    ul{margin:10px 0 0 18px; color:var(--muted)}
+    li{margin:6px 0}
+    code{background:rgba(255,255,255,.07); padding:2px 6px; border-radius:8px}
+    .small{font-size:12px; color:var(--muted)}
+    footer{
+      padding:26px 0 40px;
+      color:var(--muted);
+      border-top:1px solid var(--line);
+      margin-top:10px;
+    }
+    .fine{font-size:12px; opacity:.9}
+    .notice{
+      padding:10px 12px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.03);
+      color: var(--muted);
+    }
+    .formRow{display:grid; grid-template-columns:1fr 1fr; gap:10px}
+    @media (max-width: 700px){ .formRow{grid-template-columns:1fr} }
+    input, textarea{
+      width:100%;
+      padding:10px 12px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(0,0,0,.25);
+      color: var(--text);
+      outline:none;
+      font-family: var(--font);
+    }
+    textarea{min-height:120px; resize:vertical}
+    input::placeholder, textarea::placeholder{color:rgba(183,192,214,.8)}
+    .right{display:flex; gap:10px; flex-wrap:wrap}
+  </style>
+</head>
+
+<body>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#top">
+      <div class="logo" aria-hidden="true"></div>
+      <div>
+        <b>Madrose Productions</b>
+        <small>Films & Documentaries</small>
+      </div>
+    </a>
+    <nav class="links" aria-label="Primary">
+      <a href="#films">Films</a>
+      <a href="#watch">Where to Watch</a>
+      <a href="#press">Press</a>
+      <a href="#presskit">Press Kit</a>
+      <a href="#collabs">Collaborations</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap heroGrid">
+      <div class="card heroCard">
+        <h1>Madrose Productions</h1>
+        <p class="kicker">
+          Films and documentaries produced by <b>Jeremy Bailer</b>.
+          Watch trailers, see awards & nominations, and find the best way to stream each title.
+        </p>
+
+        <div class="pillRow">
+          <span class="pill">🎬 Films & Docuseries</span>
+          <span class="pill">🏆 Awards & Nominations</span>
+          <span class="pill">📺 Watch Links</span>
+          <span class="pill">📰 Press & Reviews</span>
+        </div>
+
+        <div class="ctaRow">
+          <a class="btn primary" href="#films">Browse Films</a>
+          <a class="btn" href="#watch">How to Watch</a>
+          <a class="btn" href="#contact">Contact</a>
+        </div>
+
+        <div class="hr"></div>
+        <div class="notice">
+          This site is designed for <b>free hosting</b> on GitHub Pages. Optional: you can connect a custom domain later.
+        </div>
+      </div>
+
+      <div class="card sideCard">
+        <h3>Featured</h3>
+        <p><b>Angle (2023)</b> — Trailer included below.</p>
+        <div class="hr"></div>
+        <h3>Highlights</h3>
+        <p>Festival wins (Berlin Crystal Bear, Sundance Sloan Prize) + Emmy-nominated work.</p>
+        <div class="hr"></div>
+        <p class="fine">© <span id="y2"></span> Madrose Productions</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="films" class="section">
+    <div class="wrap">
+      <h2>Films</h2>
+      <p class="sub">Trailers, awards, and quick links for ratings + details.</p>
+
+      <div class="grid">
+        <!-- ANGLE -->
+        <article class="card film">
+          <div class="filmTop">
+            <div>
+              <h3>Angle <span class="meta">(2023)</span></h3>
+              <div class="meta">Documentary • Producer: Jeremy Bailer</div>
+            </div>
+          </div>
+          <div class="tagRow">
+            <span class="tag">WWE Studios</span>
+            <span class="tag">Madrose Productions</span>
+          </div>
+          <p class="desc">
+            Kurt Angle’s journey from Olympic gold to WWE Hall of Fame — with candid reflections from family, friends, and wrestling legends.
+          </p>
+          <div class="embed">
+            <iframe
+              src="https://www.youtube.com/embed/ZcuZefFz1xw"
+              title="Angle (2023) Trailer"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen></iframe>
+          </div>
+          <div class="actions">
+            <a class="btn primary" href="https://www.justwatch.com/" target="_blank" rel="noreferrer">Find Streaming</a>
+            <a class="btn" href="https://www.moviefone.com/movie/angle/26SyXRhlgGg8yBBGtk90I3/main/" target="_blank" rel="noreferrer">Details</a>
+            <a class="btn" href="https://www.rottentomatoes.com/" target="_blank" rel="noreferrer">Ratings</a>
+          </div>
+        </article>
+
+        <!-- TEAM FOXCATCHER -->
+        <article class="card film">
+          <div class="filmTop">
+            <div>
+              <h3>Team Foxcatcher <span class="meta">(2016)</span></h3>
+              <div class="meta">Documentary</div>
+            </div>
+          </div>
+          <div class="tagRow">
+            <span class="tag">Emmy-nominated (Historical Documentary)</span>
+            <span class="tag">Netflix</span>
+          </div>
+          <p class="desc">
+            Rare archival footage and first-hand accounts explore the tragedy around Olympic wrestler Dave Schultz and John du Pont’s collapse.
+          </p>
+          <div class="embed">
+            <iframe
+              src="https://www.youtube.com/embed/WZczesrBFRA"
+              title="Team Foxcatcher Trailer"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen></iframe>
+          </div>
+          <div class="actions">
+            <a class="btn primary" href="https://www.netflix.com/title/80044093" target="_blank" rel="noreferrer">Watch on Netflix</a>
+            <a class="btn" href="https://www.tvguide.com/movies/team-foxcatcher/2030322293/" target="_blank" rel="noreferrer">Awards</a>
+            <a class="btn" href="https://www.rottentomatoes.com/m/team_foxcatcher" target="_blank" rel="noreferrer">Ratings</a>
+          </div>
+        </article>
+
+        <!-- ROBOT & FRANK -->
+        <article class="card film">
+          <div class="filmTop">
+            <div>
+              <h3>Robot &amp; Frank <span class="meta">(2012)</span></h3>
+              <div class="meta">Sci-Fi Comedy-Drama</div>
+            </div>
+          </div>
+          <div class="tagRow">
+            <span class="tag">Sundance — Alfred P. Sloan Prize (Winner)</span>
+            <span class="tag">Indie</span>
+          </div>
+          <p class="desc">
+            A retired cat burglar forms an unlikely bond with a caregiver robot — and discovers it can be a partner in crime.
+          </p>
+          <div class="embed">
+            <iframe
+              src="https://www.youtube.com/embed/q4y8YAMPFhk"
+              title="Robot &amp; Frank Trailer"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen></iframe>
+          </div>
+          <div class="actions">
+            <a class="btn primary" href="https://en.wikipedia.org/wiki/Robot_%26_Frank" target="_blank" rel="noreferrer">Awards / Info</a>
+            <a class="btn" href="https://www.rottentomatoes.com/m/robot_and_frank" target="_blank" rel="noreferrer">Ratings</a>
+          </div>
+        </article>
+
+        <!-- ARCADIA -->
+        <article class="card film">
+          <div class="filmTop">
+            <div>
+              <h3>Arcadia <span class="meta">(2012)</span></h3>
+              <div class="meta">Drama</div>
+            </div>
+          </div>
+          <div class="tagRow">
+            <span class="tag">Berlinale — Crystal Bear (Winner)</span>
+            <span class="tag">Festival Circuit</span>
+          </div>
+          <p class="desc">
+            A father takes his children cross-country promising a new life — as the truth about their family unravels along the way.
+          </p>
+          <div class="embed">
+            <iframe
+              src="https://www.youtube.com/embed/Ar2RCkgNyGw"
+              title="Arcadia Trailer"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen></iframe>
+          </div>
+          <div class="actions">
+            <a class="btn primary" href="https://en.wikipedia.org/wiki/Arcadia_(2012_film)" target="_blank" rel="noreferrer">Awards / Info</a>
+            <a class="btn" href="https://www.rottentomatoes.com/m/arcadia_2013" target="_blank" rel="noreferrer">Ratings</a>
+          </div>
+        </article>
+
+        <!-- SOMEONE MARRY BARRY -->
+        <article class="card film">
+          <div class="filmTop">
+            <div>
+              <h3>Someone Marry Barry <span class="meta">(2014)</span></h3>
+              <div class="meta">Comedy</div>
+            </div>
+          </div>
+          <div class="tagRow">
+            <span class="tag">Rom-com</span>
+            <span class="tag">Madrose Productions</span>
+          </div>
+          <p class="desc">
+            Three childhood friends try to “fix” their socially inappropriate buddy Barry by finding him a wife — and chaos follows.
+          </p>
+          <div class="embed">
+            <iframe
+              src="https://www.youtube.com/embed/Oaw6asSUeB8"
+              title="Someone Marry Barry Trailer"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen></iframe>
+          </div>
+          <div class="actions">
+            <a class="btn primary" href="https://en.wikipedia.org/wiki/Someone_Marry_Barry" target="_blank" rel="noreferrer">Info</a>
+            <a class="btn" href="https://www.rottentomatoes.com/m/someone_marry_barry" target="_blank" rel="noreferrer">Ratings</a>
+          </div>
+        </article>
+
+        <!-- THE NEW REPUBLIC -->
+        <article class="card film">
+          <div class="filmTop">
+            <div>
+              <h3>The New Republic <span class="meta">(2011)</span></h3>
+              <div class="meta">Thriller</div>
+            </div>
+          </div>
+          <div class="tagRow">
+            <span class="tag">Near-future</span>
+            <span class="tag">Suspense</span>
+            <span class="tag">Madrose Productions</span>
+          </div>
+          <p class="desc">
+            In the near future, a powerful agency blackmails a young journalist into infiltrating an underground nationalist group.
+          </p>
+          <div class="embed">
+            <iframe
+              src="https://www.youtube.com/embed/WjF2za6ONoY"
+              title="The New Republic Trailer"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen></iframe>
+          </div>
+          <div class="actions">
+            <a class="btn primary" href="https://www.moviefone.com/movie/the-new-republic/10118184/main/" target="_blank" rel="noreferrer">Where to Watch</a>
+            <a class="btn" href="https://www.rottentomatoes.com/m/the_new_republic_2012" target="_blank" rel="noreferrer">Info</a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="watch" class="section">
+    <div class="wrap">
+      <h2>Where to Watch</h2>
+      <p class="sub">Availability changes by region. Use these links as the “source of truth” for each title.</p>
+
+      <div class="cols">
+        <div class="card film">
+          <h3>Quick Start</h3>
+          <ul>
+            <li><b>Team Foxcatcher</b> — Netflix link is included above.</li>
+            <li><b>Angle</b> — use JustWatch to confirm your region + platform.</li>
+            <li>For the other titles, link out to a “Where to Watch” page (Moviefone / JustWatch) or your preferred storefronts.</li>
+          </ul>
+          <div class="actions">
+            <a class="btn primary" href="https://www.justwatch.com/" target="_blank" rel="noreferrer">JustWatch</a>
+            <a class="btn" href="https://www.moviefone.com/" target="_blank" rel="noreferrer">Moviefone</a>
+          </div>
+        </div>
+
+        <div class="card film">
+          <h3>Make your watch buttons “perfect”</h3>
+          <p class="desc">
+            When you have the exact storefront URLs (Apple TV / Prime Video / Google Play / YouTube Movies, etc),
+            replace the “Find Streaming” buttons with direct links so fans can click once and buy/stream.
+          </p>
+          <div class="mutedBox">
+            Example: replace a button URL with <code>https://tv.apple.com/...</code> or <code>https://www.amazon.com/...</code>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="press" class="section">
+    <div class="wrap">
+      <h2>Press & Reviews</h2>
+      <p class="sub">Linkouts you can expand over time with pull quotes and full press coverage.</p>
+
+      <div class="cols">
+        <div class="card film">
+          <h3>Angle (2023)</h3>
+          <p class="desc">Movie details + “where to watch” references.</p>
+          <div class="actions">
+            <a class="btn primary" href="https://www.moviefone.com/movie/angle/26SyXRhlgGg8yBBGtk90I3/main/" target="_blank" rel="noreferrer">Moviefone</a>
+            <a class="btn" href="https://www.metacritic.com/movie/angle/" target="_blank" rel="noreferrer">Metacritic</a>
+          </div>
+        </div>
+
+        <div class="card film">
+          <h3>Team Foxcatcher</h3>
+          <p class="desc">Awards lists + ratings hub.</p>
+          <div class="actions">
+            <a class="btn primary" href="https://www.tvguide.com/movies/team-foxcatcher/2030322293/" target="_blank" rel="noreferrer">Awards</a>
+            <a class="btn" href="https://www.rottentomatoes.com/m/team_foxcatcher" target="_blank" rel="noreferrer">Ratings</a>
+          </div>
+        </div>
+      </div>
+
+      <div style="height:14px"></div>
+      <div class="mutedBox">
+        <b>Easy upgrade:</b> Add a short pull quote for each film (5–20 words) and link to the full review/article.
+      </div>
+    </div>
+  </section>
+
+  <section id="presskit" class="section">
+    <div class="wrap">
+      <h2>Press Kit</h2>
+      <p class="sub">Downloadable PDFs + images (upload files into your GitHub repo, then link them here).</p>
+
+      <div class="cols">
+        <div class="card film">
+          <h3>What to upload (recommended)</h3>
+          <ul>
+            <li><b>Madrose_Productions_Press_Kit.pdf</b></li>
+            <li>One-sheet per title (PDF)</li>
+            <li>Hi-res stills (JPG/PNG)</li>
+            <li>Laurels (PNG/SVG)</li>
+            <li>Logos (PNG/SVG)</li>
+          </ul>
+          <div class="mutedBox">
+            Put them in a folder named <code>assets/presskit/</code> in your GitHub repo.
+          </div>
+        </div>
+
+        <div class="card film">
+          <h3>Press kit downloads (placeholders)</h3>
+          <p class="desc">Once you upload the files, these links will work automatically.</p>
+          <div class="actions">
+            <a class="btn primary" href="assets/presskit/Madrose_Productions_Press_Kit.pdf">Download Company Press Kit (PDF)</a>
+            <a class="btn" href="assets/presskit/Angle_One_Sheet.pdf">Angle — One Sheet (PDF)</a>
+            <a class="btn" href="assets/presskit/Team_Foxcatcher_One_Sheet.pdf">Team Foxcatcher — One Sheet (PDF)</a>
+          </div>
+          <p class="small">Tip: Keep filenames exactly as shown (or change them here to match what you upload).</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="collabs" class="section">
+    <div class="wrap">
+      <h2>Collaborations</h2>
+      <p class="sub">Partners across projects.</p>
+
+      <div class="card film">
+        <h3>MP Motion Pictures</h3>
+        <p class="desc">
+          <b>Collaboration:</b> <b>Clash of Dynasties: St. Edward vs Walsh Jesuit</b> — docuseries directed by <b>Ben Hatta</b>.
+        </p>
+
+        <div class="tagRow">
+          <span class="tag">Docuseries</span>
+          <span class="tag">Wrestling</span>
+          <span class="tag">St. Edward vs Walsh Jesuit</span>
+        </div>
+
+        <div class="embed" title="Clash of Dynasties Trailer">
+          <iframe
+            src="https://www.youtube.com/embed/D0LrQZlEUO8"
+            title="Clash of Dynasties Trailer"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen></iframe>
+        </div>
+
+        <div class="actions">
+          <a class="btn primary" href="https://clashofdynasties.com/" target="_blank" rel="noreferrer">Official Site</a>
+          <a class="btn" href="https://clashofdynasties.vhx.tv/" target="_blank" rel="noreferrer">Watch / Bundle</a>
+          <a class="btn" href="https://www.imdb.com/title/tt21910378/" target="_blank" rel="noreferrer">IMDb</a>
+        </div>
+
+        <div style="height:10px"></div>
+        <div class="mutedBox">
+          Want direct “Watch Now” buttons (Apple/Amazon/Google/YouTube) here? Replace/append buttons above with your preferred URLs.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="section">
+    <div class="wrap">
+      <h2>Contact</h2>
+      <p class="sub">Simple + free contact form. (No paid hosting required.)</p>
+
+      <div class="cols">
+        <div class="card film">
+          <h3>Direct contact</h3>
+          <p class="desc"><b>Jeremy Bailer</b><br/>Madrose Productions</p>
+
+          <!-- EDIT THIS EMAIL -->
+          <div class="mutedBox">
+            Replace the email below with your real contact email:
+            <div style="height:8px"></div>
+            <code id="contactEmail">your-email@example.com</code>
+          </div>
+
+          <div style="height:10px"></div>
+          <div class="actions">
+            <a class="btn primary" id="emailLink" href="mailto:your-email@example.com">Email Madrose</a>
+            <a class="btn" href="#presskit">Press Kit</a>
+          </div>
+        </div>
+
+        <div class="card film">
+          <h3>Contact form (free)</h3>
+          <p class="desc">
+            This form uses <b>mailto</b> by default (opens the visitor’s email app). That’s the only truly “no accounts, no fees” option on a static site.
+          </p>
+
+          <!-- MAILTO FORM (100% FREE, NO SERVICES) -->
+          <form id="mailtoForm">
+            <div class="formRow">
+              <div>
+                <label class="small" for="name">Name</label>
+                <input id="name" name="name" placeholder="Your name" required />
+              </div>
+              <div>
+                <label class="small" for="from">Email</label>
+                <input id="from" name="from" type="email" placeholder="you@example.com" required />
+              </div>
+            </div>
+            <div style="height:10px"></div>
+            <div>
+              <label class="small" for="subject">Subject</label>
+              <input id="subject" name="subject" placeholder="Film inquiry / press / licensing / screening" required />
+            </div>
+            <div style="height:10px"></div>
+            <div>
+              <label class="small" for="message">Message</label>
+              <textarea id="message" name="message" placeholder="Write your message…" required></textarea>
+            </div>
+
+            <div style="height:12px"></div>
+            <div class="right">
+              <button class="btn primary" type="submit">Send Message</button>
+              <button class="btn" type="reset">Clear</button>
+            </div>
+          </form>
+
+          <div style="height:12px"></div>
+          <div class="notice">
+            Optional upgrade (still usually free): use Formspree or similar so messages submit without opening an email app.
+            If you do that later, you’ll only swap a form <code>action</code> URL.
+          </div>
+        </div>
+      </div>
+
+      <div style="height:18px"></div>
+
+      <div class="card film">
+        <h3>Optional: Custom domain (no hosting fees, domain purchase required)</h3>
+        <p class="desc">
+          If you buy a domain (example: <code>madroseproductions.com</code>), you can connect it to GitHub Pages.
+          GitHub hosting remains free — the only cost is the domain itself.
+        </p>
+        <ul>
+          <li>In your GitHub repo: <b>Settings → Pages</b></li>
+          <li>Under <b>Custom domain</b>, enter your domain and save</li>
+          <li>At your domain registrar, add the DNS records GitHub provides</li>
+          <li>Enable <b>Enforce HTTPS</b> once it’s available</li>
+        </ul>
+        <div class="mutedBox">
+          If you want, tell me your registrar (GoDaddy / Namecheap / Squarespace Domains, etc.) and I’ll tell you exactly which DNS records to add.
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="fine">
+      © <span id="y"></span> Madrose Productions • Built for free hosting on GitHub Pages
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Year
+  document.getElementById("y").textContent = new Date().getFullYear();
+  document.getElementById("y2").textContent = new Date().getFullYear();
+
+  // EDIT THIS EMAIL once, and everything updates:
+  // Replace "your-email@example.com" inside this variable:
+  const EMAIL = "your-email@example.com";
+
+  const emailEl = document.getElementById("contactEmail");
+  const emailLink = document.getElementById("emailLink");
+  emailEl.textContent = EMAIL;
+  emailLink.href = "mailto:" + EMAIL;
+
+  // Mailto form submit
+  document.getElementById("mailtoForm").addEventListener("submit", function(e){
+    e.preventDefault();
+    const name = encodeURIComponent(document.getElementById("name").value.trim());
+    const from = encodeURIComponent(document.getElementById("from").value.trim());
+    const subject = encodeURIComponent(document.getElementById("subject").value.trim());
+    const message = encodeURIComponent(document.getElementById("message").value.trim());
+
+    const fullSubject = subject || "Madrose Productions Inquiry";
+    const body =
+      "Name: " + name + "%0D%0A" +
+      "Email: " + from + "%0D%0A%0D%0A" +
+      message;
+
+    window.location.href = "mailto:" + EMAIL + "?subject=" + fullSubject + "&body=" + body;
+  });
+</script>
+
+</body>
+</html>
