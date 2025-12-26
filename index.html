@@ -580,22 +580,21 @@
           <h3>Direct contact</h3>
           <p class="desc"><b>Jeremy Bailer</b><br/>Madrose Productions</p>
 
-          <!-- EDIT THIS EMAIL -->
-          <div class="mutedBox">
-  
-            <div style="height:8px"></div>
-            
-          </div>
+<div class="mutedBox">
+  <div class="small">Email</div>
+  <div style="height:8px"></div>
 
-          <div style="height:10px"></div>
-          <div class="actions">
-            <a class="btn primary" id="emailLink" href="mailto:your-email@example.com">Email Madrose</a>
-            <a class="btn" href="#presskit">Press Kit</a>
-          </div>
-        </div>
-<a id="emailLink">
-  <code id="contactEmail"></code>
-</a>
+  <a id="emailLink" style="text-decoration:none">
+    <code id="contactEmail"></code>
+  </a>
+</div>
+
+<div style="height:10px"></div>
+
+<div class="actions">
+  <a class="btn primary" id="emailLinkBtn">Email Madrose</a>
+  <a class="btn" href="#presskit">Press Kit</a>
+</div>
         <div class="card film">
           <h3>Contact form (free)</h3>
           <p class="desc">
@@ -684,6 +683,8 @@
   emailEl.textContent = EMAIL;
   emailLink.href = "mailto:" + EMAIL;
 
+  const emailLinkBtn = document.getElementById("emailLinkBtn");
+if (emailLinkBtn) emailLinkBtn.href = "mailto:" + EMAIL;
   // Mailto form submit
   document.getElementById("mailtoForm").addEventListener("submit", function(e){
     e.preventDefault();
