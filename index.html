@@ -685,6 +685,12 @@
   const emailLink = document.getElementById("emailLink");
   emailEl.textContent = EMAIL;
   emailLink.href = "mailto:" + EMAIL;
+  const pressEmail = document.getElementById("pressEmail");
+  const pressEmailLink = document.getElementById("pressEmailLink");
+  if (pressEmail && pressEmailLink) {
+    pressEmail.textContent = EMAIL;
+    pressEmailLink.href = "mailto:" + EMAIL;
+  }
 
   const emailLinkBtn = document.getElementById("emailLinkBtn");
 if (emailLinkBtn) emailLinkBtn.href = "mailto:" + EMAIL;
