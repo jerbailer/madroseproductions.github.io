@@ -836,10 +836,20 @@
   // Replace "your-email@example.com" inside this variable:
   const EMAIL = "madroseproductions@gmail.com";
 
+document.addEventListener("DOMContentLoaded", () => {
   const emailEl = document.getElementById("contactEmail");
   const emailLink = document.getElementById("emailLink");
-  emailEl.textContent = EMAIL;
-  emailLink.href = "mailto:" + EMAIL;
+  const emailLinkBtn = document.getElementById("emailLinkBtn");
+
+  if (emailEl && emailLink) {
+    emailEl.textContent = EMAIL;
+    emailLink.href = "mailto:" + EMAIL;
+  }
+
+  if (emailLinkBtn) {
+    emailLinkBtn.href = "mailto:" + EMAIL;
+  }
+});
   const pressEmail = document.getElementById("pressEmail");
   const pressEmailLink = document.getElementById("pressEmailLink");
   if (pressEmail && pressEmailLink) {
