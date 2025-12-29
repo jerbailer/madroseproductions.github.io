@@ -829,9 +829,11 @@
 
 <script>
   // Year
-  document.getElementById("y").textContent = new Date().getFullYear();
-  document.getElementById("y2").textContent = new Date().getFullYear();
+const y = document.getElementById("y");
+if (y) y.textContent = new Date().getFullYear();
 
+const y2 = document.getElementById("y2");
+if (y2) y2.textContent = new Date().getFullYear();
   // EDIT THIS EMAIL once, and everything updates:
   // Replace "your-email@example.com" inside this variable:
   const EMAIL = "madroseproductions@gmail.com";
