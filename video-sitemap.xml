@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+
+  <url>
+    <loc>https://jerbailer.github.io/madroseproductions.github.io/</loc>
+    <video:video>
+      <video:thumbnail_loc>
+        https://img.youtube.com/vi/ZcuZefFz1xw/maxresdefault.jpg
+      </video:thumbnail_loc>
+      <video:title>Angle (2023) Official Trailer</video:title>
+      <video:description>Official trailer for the documentary Angle (2023).</video:description>
+      <video:player_loc allow_embed="yes">
+        https://www.youtube.com/watch?v=ZcuZefFz1xw
+      </video:player_loc>
+    </video:video>
+  </url>
+</urlset>
